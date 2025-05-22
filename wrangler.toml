@@ -1,4 +1,5 @@
-name = "worker"
+# wrangler.toml
+name = 'little-mode-3fa0'
 type = "javascript"
 
 account_id = ""
