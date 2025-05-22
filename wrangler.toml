@@ -9,8 +9,12 @@ compatibility_date = "2021-11-19"
 
 [vars]
 WEBHOOK_SECRET="secret"
+CF_CLIENT_ID="Client Auth ID"
+CF_CLIENT_SECRET="Client Secret"
 RYOT_URL="https://testing-webhook.rocket.chat/hooks/XXX"
 
 [env.production.vars]
 WEBHOOK_SECRET="production-secret"
+CF_CLIENT_ID="Client Auth ID"
+CF_CLIENT_SECRET="Client Secret"
 RYOT_URL="https://testing-webhook.rocket.chat/hooks/XXX"
