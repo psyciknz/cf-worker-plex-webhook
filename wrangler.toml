@@ -16,8 +16,7 @@ enabled = true
 WEBHOOK_SECRET="secret"
 CF_CLIENT_ID="Client Auth ID"
 CF_CLIENT_SECRET="Client Secret"
-SERVICE_URLS="https://testing-webhook.rocket.chat/hooks/XXX
-https://testing-webhook.rocket.chat/hooks/XXX2"
+SERVICE_URLS="https://testing-webhook.rocket.chat/hooks/XXX"
 
 [env.production.vars]
 WEBHOOK_SECRET="production-secret"
