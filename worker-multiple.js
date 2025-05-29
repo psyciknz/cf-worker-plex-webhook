@@ -55,6 +55,8 @@ export default {
 
     const headers = new Headers(request.headers);
     headers.set('User-Agent', `Webhook-proxy-worker ${version}`);
+    headers.set('CF-Access-Client-Id', env.CF_CLIENT_ID);
+    headers.set('CF-Access-Client-Secret', env.CF_CLIENT_SECRET);
 
     let returnError = null;
     let returnContent = null;
