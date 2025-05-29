@@ -21,7 +21,7 @@ secrets_store_secrets = [
 enabled = true
 
 [vars]
-LOGLEVEL = DEBUG
+LOGLEVEL = "DEBUG"
 
 [env.production.vars]
-LOGLEVEL = INFO
+LOGLEVEL = "INFO"
