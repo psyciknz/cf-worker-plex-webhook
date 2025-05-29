@@ -3,10 +3,14 @@ name = 'little-mode-3fa0'
 type = "javascript"
 
 workers_dev = true
-route = ""
-zone_id = ""
+#route = ""
+#zone_id = ""
 compatibility_date = "2021-11-19"
 main = "worker.js"
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
 
 [vars]
 WEBHOOK_SECRET="secret"
