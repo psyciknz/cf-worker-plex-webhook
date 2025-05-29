@@ -42,15 +42,15 @@ export default {
       if (contentType.includes('application/x-www-form-urlencoded')) {
         const params = new URLSearchParams(data);
         if (params.has('payload')) {
+          console.log(`Posting payload`);
           payload = JSON.parse(params.get('payload'));
-          if (LOGLEVEL === 'INFO' || LOGLEVEL === 'DEBUG') {
-            console.log(`Event: ${payload.event}`);
-            console.log(`Server: ${payload.Server?.title}`);
-          }
+          console.log(`Event: ${payload.event}`);
+          console.log(`Server: ${payload.Server?.title}`);
+          
         }
       }
     } catch (err) {
-      if (LOGLEVEL === 'DEBUG') console.error('Error parsing request body', err);
+      console.error('Error parsing request body', err);
     }
 
     const headers = new Headers(request.headers);
@@ -70,9 +70,7 @@ export default {
           body: data
         });
 
-        if (LOGLEVEL === 'INFO' || LOGLEVEL === 'DEBUG') {
-          console.log(`Response status from ${targetUrl}: ${res.status}`);
-        }
+        console.log(`Response status from ${targetUrl}: ${res.status}`);
 
         const resHeaders = {};
         for (const [name, value] of res.headers.entries()) {
@@ -81,7 +79,8 @@ export default {
           }
         }
 
-        if (res.status > 399) {
+        if (res.status > 499) {
+          console.error(`Request to ${targetUrl} failed returned ${res.status}`);
           returnError = res.status;
           returnContent = await res.text();
         }
