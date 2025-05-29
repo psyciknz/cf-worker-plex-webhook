@@ -13,18 +13,21 @@ export default {
       if (LOGLEVEL !== 'ERROR') {
         console.log(`Webhook Secret: ${webhookSecret}`);
         console.log(`URLs: ${serviceUrls.join(',')}`);
+        console.log(`GET Called, invalid operation`);
       }
       return new Response(null, { status: 403 });
     }
 
     const token = url.searchParams.get('token');
     if (!token) {
+      console.error(`No token specified`)
       return new Response('Token not provided', { status: 400 });
     }
 
     if (LOGLEVEL !== 'ERROR') console.log(`Token: ${token}`);
 
     if (token !== webhookSecret) {
+      console.error(`Invalid token specified`)
       return new Response(':(', {
         status: 401,
         headers: { 'content-type': 'text/plain' }
