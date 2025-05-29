@@ -5,7 +5,7 @@ type = "javascript"
 workers_dev = true
 #route = ""
 #zone_id = ""
-compatibility_date = "2021-11-19"
+compatibility_date = "2025-05-22"
 main = "worker-multiple.js"
 
 secrets_store_secrets = [

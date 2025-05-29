@@ -1,14 +1,18 @@
 export default {
   async fetch(request, env, ctx) {
-    const version = "0.1";
+    const version = "0.2";
 
+    console.log("Reading Vars");
     const LOGLEVEL = (env.LOGLEVEL || 'INFO').toUpperCase();
-    const webhookSecret = await env.WEBHOOK_SECRET.get();
+    const webhookSecret = env.WEBHOOK_SECRET.get();
     const serviceUrls = (env.SERVICE_URLS || '').split(";").filter(Boolean);
+    const client_id = env.CF_CLIENT_ID.get();
+    const client_secret= env.CF_CLIENT_SECRET.get();
 
     const url = new URL(request.url);
     const method = request.method;
 
+    console.log("Vars read");
     if (method === 'GET') {
       console.log(`Webhook Secret: ${webhookSecret}`);
       console.log(`URLs: ${serviceUrls.join(',')}`);
@@ -53,8 +57,8 @@ export default {
 
     const headers = new Headers(request.headers);
     headers.set('User-Agent', `Webhook-proxy-worker ${version}`);
-    headers.set('CF-Access-Client-Id', await env.CF_CLIENT_ID.get());
-    headers.set('CF-Access-Client-Secret', await env.CF_CLIENT_SECRET.get());
+    headers.set('CF-Access-Client-Id', client_id);
+    headers.set('CF-Access-Client-Secret', client_secret);
 
     let returnError = null;
     let returnContent = null;
