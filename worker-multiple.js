@@ -3,7 +3,7 @@ export default {
     const version = "0.1";
 
     const LOGLEVEL = (env.LOGLEVEL || 'INFO').toUpperCase();
-    const webhookSecret = env.WEBHOOK_SECRET.get();
+    const webhookSecret = await env.WEBHOOK_SECRET.get();
     const serviceUrls = (env.SERVICE_URLS || '').split(";").filter(Boolean);
 
     const url = new URL(request.url);
@@ -53,8 +53,8 @@ export default {
 
     const headers = new Headers(request.headers);
     headers.set('User-Agent', `Webhook-proxy-worker ${version}`);
-    headers.set('CF-Access-Client-Id', env.CF_CLIENT_ID.get());
-    headers.set('CF-Access-Client-Secret', env.CF_CLIENT_SECRET.get());
+    headers.set('CF-Access-Client-Id', await env.CF_CLIENT_ID.get());
+    headers.set('CF-Access-Client-Secret', await env.CF_CLIENT_SECRET.get());
 
     let returnError = null;
     let returnContent = null;
