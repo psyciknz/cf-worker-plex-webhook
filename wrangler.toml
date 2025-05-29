@@ -6,7 +6,7 @@ workers_dev = true
 #route = ""
 #zone_id = ""
 compatibility_date = "2021-11-19"
-main = "worker.js"
+main = "worker-multple.js"
 
 # wrangler.toml (wrangler v3.88.0^)
 [observability.logs]
@@ -16,10 +16,11 @@ enabled = true
 WEBHOOK_SECRET="secret"
 CF_CLIENT_ID="Client Auth ID"
 CF_CLIENT_SECRET="Client Secret"
-RYOT_URL="https://testing-webhook.rocket.chat/hooks/XXX"
+SERVICE_URLS=https://testing-webhook.rocket.chat/hooks/XXX
+https://testing-webhook.rocket.chat/hooks/XXX2
 
 [env.production.vars]
 WEBHOOK_SECRET="production-secret"
 CF_CLIENT_ID="Client Auth ID"
 CF_CLIENT_SECRET="Client Secret"
-RYOT_URL="https://testing-webhook.rocket.chat/hooks/XXX"
+SERVICE_URLS="https://testing-webhook.rocket.chat/hooks/XXX"
