@@ -6,6 +6,7 @@ workers_dev = true
 route = ""
 zone_id = ""
 compatibility_date = "2021-11-19"
+main = "worker.js"
 
 [vars]
 WEBHOOK_SECRET="secret"
