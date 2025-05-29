@@ -6,7 +6,7 @@ workers_dev = true
 #route = ""
 #zone_id = ""
 compatibility_date = "2021-11-19"
-main = "worker-multple.js"
+main = "worker-multiple.js"
 
 # wrangler.toml (wrangler v3.88.0^)
 [observability.logs]
