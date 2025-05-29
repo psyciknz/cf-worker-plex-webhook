@@ -3,3 +3,5 @@ Source2: <https://hackinggate.com/blog/forwarding-github-webhook-to-jenkins-behi
 
 Once all connected, verify you dont have any WAF blocking access:
 Cloudflare, <domain>, Security, Events and WAF
+
+Using Secrets store 
