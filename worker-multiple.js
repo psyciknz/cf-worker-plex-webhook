@@ -10,11 +10,9 @@ export default {
     const method = request.method;
 
     if (method === 'GET') {
-      if (LOGLEVEL !== 'ERROR') {
-        console.log(`Webhook Secret: ${webhookSecret}`);
-        console.log(`URLs: ${serviceUrls.join(',')}`);
-        console.log(`GET Called, invalid operation`);
-      }
+      console.log(`Webhook Secret: ${webhookSecret}`);
+      console.log(`URLs: ${serviceUrls.join(',')}`);
+      console.log(`GET Called, invalid operation`);
       return new Response(null, { status: 403 });
     }
 
@@ -24,7 +22,7 @@ export default {
       return new Response('Token not provided', { status: 400 });
     }
 
-    if (LOGLEVEL !== 'ERROR') console.log(`Token: ${token}`);
+    console.log(`Token: ${token}`);
 
     if (token !== webhookSecret) {
       console.error(`Invalid token specified`)
