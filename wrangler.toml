@@ -12,3 +12,8 @@ main = "worker-multiple.js"
 [observability.logs]
 enabled = true
 
+[vars]
+SERVICE_URLS = "api.example.com"
+WEBHOOK_SECRET = "secret"
+CF_CLIENT_ID = "client id"
+CF_CLIENT_SECRET = "client secret"
