@@ -4,10 +4,10 @@ export default {
 
     console.log("Reading Vars");
     const LOGLEVEL = (env.LOGLEVEL || 'INFO').toUpperCase();
-    const webhookSecret = env.WEBHOOK_SECRET.get();
+    const webhookSecret = await env.WEBHOOK_SECRET.get();
     const serviceUrls = (env.SERVICE_URLS || '').split(";").filter(Boolean);
-    const client_id = env.CF_CLIENT_ID.get();
-    const client_secret= env.CF_CLIENT_SECRET.get();
+    const client_id = await env.CF_CLIENT_ID.get();
+    const client_secret= await env.CF_CLIENT_SECRET.get();
 
     const url = new URL(request.url);
     const method = request.method;
@@ -29,7 +29,7 @@ export default {
     console.log(`Token: ${token}`);
 
     if (token !== webhookSecret) {
-      console.error(`Invalid token specified`)
+      console.error(`Invalid token specified ${token} sec:${webhookSecret}`)
       return new Response(':(', {
         status: 401,
         headers: { 'content-type': 'text/plain' }
