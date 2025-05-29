@@ -51,7 +51,7 @@ export default {
     }
 
     const headers = new Headers(request.headers);
-    headers.set('User-Agent', `Webhook-proxy ${version}`);
+    headers.set('User-Agent', `Webhook-proxy-worker ${version}`);
 
     let returnError = null;
     let returnContent = null;
@@ -90,11 +90,13 @@ export default {
     }
 
     if (returnError !== null) {
+      console.error(`Received an error`)
       return new Response(returnContent, {
         status: returnError,
         headers: returnHeaders
       });
     } else {
+      console.log(`Received Success`)
       return new Response('success', {
         status: 200,
         headers: returnHeaders
