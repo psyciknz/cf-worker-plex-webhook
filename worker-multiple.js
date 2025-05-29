@@ -4,7 +4,7 @@ export default {
 
     const LOGLEVEL = (env.LOGLEVEL || 'INFO').toUpperCase();
     const webhookSecret = env.WEBHOOK_SECRET;
-    const serviceUrls = (env.SERVICE_URLS || '').split("\n").filter(Boolean);
+    const serviceUrls = (env.SERVICE_URLS || '').split(";").filter(Boolean);
 
     const url = new URL(request.url);
     const method = request.method;

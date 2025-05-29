@@ -11,9 +11,7 @@ main = "worker-multiple.js"
 secrets_store_secrets = [
   { binding = "WEBHOOK_SECRET", store_id= "7783df1f82524692bcaa7aed026e6509", secret_name = "WEBHOOK_SECRET" },
   { binding = "CF_CLIENT_ID", store_id= "7783df1f82524692bcaa7aed026e6509", secret_name = "CF-Access-Client-Id" },
-  { binding = "CF_CLIENT_SECRET", store_id= "7783df1f82524692bcaa7aed026e6509", secret_name = "CF-Access-Client-Secret" },
-  { binding = "SERVICE_URLS", store_id= "7783df1f82524692bcaa7aed026e6509", secret_name = "SERVICE_URLS" }
-  
+  { binding = "CF_CLIENT_SECRET", store_id= "7783df1f82524692bcaa7aed026e6509", secret_name = "CF-Access-Client-Secret" } 
 ]
 
 # wrangler.toml (wrangler v3.88.0^)
@@ -22,6 +20,8 @@ enabled = true
 
 [vars]
 LOGLEVEL = "DEBUG"
+SERVICE_URLS="https://little-mode-3fa0.andc.nz/_i/int_4TQ7hD15LTvS;https://little-mode-3dfa.andc.nz/webhook/plex/jP_OrifXKDS25EuOeodSgKDkdKkOvNND"
 
 [env.production.vars]
 LOGLEVEL = "INFO"
+SERVICE_URLS="https://little-mode-3fa0.andc.nz/_i/int_4TQ7hD15LTvS;https://little-mode-3dfa.andc.nz/webhook/plex/jP_OrifXKDS25EuOeodSgKDkdKkOvNND"
